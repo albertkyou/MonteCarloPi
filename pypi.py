@@ -1,8 +1,9 @@
-# pywindow is a pygame demo
+# pypi is a Monte Carlo approximation of pi rendered in a pygame window
 # the goal is to open a pygame window and plot a bunch of dots with various distributions
 # Demo of how to approximate pi using a monte carlo simulation
 # Albert You
-# Math:
+
+# Concept:
 # The area of a square with length 2 is 4
 # The area of a unit circle is pi
 # The probability of a point landing inside the circle is thus pi/4
