@@ -12,18 +12,6 @@ import pygame
 import numpy as np 
 import time
 
-def incircle(x,y):
-    # calculates if (x,y) is in the circle or not
-
-    # x: [-1,1]
-    # y: [-1,1]
-
-    radius = np.sqrt(x**2+y**2)
-    if radius <= 1:
-        return True
-    else:
-        return False
-
 pygame.init()
 
 background_colour = (255,255,255) # white
@@ -41,18 +29,27 @@ ratio = font.render('Ratio: ',True,(0,0,0))
 screen.blit(insidetext,(200,50))
 screen.blit(outsidetext,(200, 100))
 screen.blit(ratio,(200,150))
-
 # draw bounding square
 pygame.draw.rect(screen,(0,0,0),(200,200,500,500),2)
 
 # draw bounding rectangle
 pygame.draw.circle(screen,(0,0,0),(450,450),250,1)
 
-
-
 insidecounter = 0
 outsidecounter = 0
 
+# helper function to see if something is inside a circle
+def incircle(x,y):
+    # calculates if (x,y) is in the circle or not
+
+    # x: [-1,1]
+    # y: [-1,1]
+
+    radius = np.sqrt(x**2+y**2)
+    if radius <= 1:
+        return True
+    else:
+        return False
 
 # pygame.display.flip()
 def drawDots():
@@ -83,6 +80,7 @@ def drawDots():
         screen.blit(rationumber,(350, 150))
     pygame.display.update()
 
+# main loop
 def main():
     running = True
     while running:
