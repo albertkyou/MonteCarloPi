@@ -15,10 +15,10 @@ import time
 pygame.init()
 
 background_colour = (255,255,255) # white
-(width, height) = (900, 900)
+(width, height) = (900, 1000)
 
 screen = pygame.display.set_mode((width, height))
-pygame.display.set_caption('Plot Distributions')
+pygame.display.set_caption('Approximate Pi')
 screen.fill(background_colour)
 
 # Display the counter for dots inside the circle and outside the circle
@@ -30,10 +30,10 @@ screen.blit(insidetext,(200,50))
 screen.blit(outsidetext,(200, 100))
 screen.blit(ratio,(200,150))
 # draw bounding square
-pygame.draw.rect(screen,(0,0,0),(200,200,500,500),2)
+pygame.draw.rect(screen,(0,0,0),(100,200,700,700),2)
 
 # draw bounding rectangle
-pygame.draw.circle(screen,(0,0,0),(450,450),250,1)
+pygame.draw.circle(screen,(0,0,0),(450,550),350,1)
 
 insidecounter = 0
 outsidecounter = 0
@@ -61,13 +61,13 @@ def drawDots():
     y = 2*np.random.rand()-1
 
     if incircle(x,y):
-        pygame.draw.circle(screen, (255,0,0), (450+int(250*x),450+int(250*y)), 2)
+        pygame.draw.circle(screen, (255,0,0), (450+int(350*x),550+int(350*y)), 2)
         insidecounter+=1
         pygame.draw.rect(screen, (255,255,255), (600,50,100,50))
         insidenumber = font.render(str(insidecounter),True,(255,0,0),(255,255,255))
         screen.blit(insidenumber,(600, 50))
     else:
-        pygame.draw.circle(screen, (0,0,255), (450+int(250*x),450+int(250*y)), 2)
+        pygame.draw.circle(screen, (0,0,255), (450+int(350*x),550+int(350*y)), 2)
         outsidecounter+=1
         pygame.draw.rect(screen, (255,255,255), (600,100,100,50))
 
